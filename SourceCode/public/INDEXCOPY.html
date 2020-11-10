@@ -1,0 +1,566 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BundleBid</title>
+    <!--Page-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<!--Page Style-->
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Full-width input fields */
+    
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    
+    .topnav .search-container button:hover {
+        background: #ccc;
+    }
+    
+    .topnav a,
+    .topnav input[type=text],
+    .topnav .search-container button {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 40%;
+        margin: 10;
+        padding: 0px;
+    }
+    
+    .topnav input[type=text] {
+        border: 1px solid #ccc;
+    }
+    
+    .topnav a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 0px 0px;
+        text-decoration: none;
+        font-size: 5px;
+    }
+    /* Set a style for all buttons */
+    
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 10px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    button:hover {
+        opacity: 0.8;
+    }
+    /* Extra styles for the cancel button */
+    
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+    /* Center the image and position the close button */
+    
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+    }
+    
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+    
+    .container {
+        padding: 16px;
+    }
+    
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgb(238, 238, 238);
+        /* Black w/ opacity */
+        max-height: 100%;
+    }
+    /* Modal Content/Box */
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 500px;
+        /* Could be more or less, depending on screen size */
+    }
+    /* The Close Button (x) */
+    
+    .close {
+        position: absolute;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+    /* Add Zoom Animation */
+    
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+    
+    @-webkit-keyframes animatezoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+    
+    @keyframes animatezoom {
+        from {
+            transform: scale(0)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+    /* Change styles for span and cancel button on extra small screens */
+    
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+        .cancelbtn {
+            width: 100%;
+        }
+    }
+    
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Karma", sans-serif
+    }
+    
+    .w3-bar-block .w3-bar-item {
+        padding: 20px
+    }
+    
+    img {
+        width: 150px;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .carousel-inner img {
+        object-fit: cover;
+        width: 70%;
+        height: 30%;
+    }
+    
+    .topnav .search-container {
+        float: center;
+    }
+    
+    .topnav .search-container button {
+        float: right;
+        padding: 0px 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        background: #ddd;
+        font-size: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .topnav .search-container button:hover {
+        background: #ccc;
+    }
+    
+    <!--navstyle-->ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover {
+        background-color: #111;
+    }
+    
+    [type="radio"]:not(:checked),
+    [type="radio"]:checked {
+        position: relative;
+        opacity: 1;
+    }
+</style>
+
+<body class="grey lighten-3">
+
+    <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="background-color:#ffe6cc; display:none;z-index:2;width:20%;min-width:200px; color:#ffcc99" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button" align="right"><button class="btn"><i
+        class="fa fa-close"></i></button></a>
+
+        <a href="#clothing" onclick="w3_close()" class="w3-bar-item w3-button">Clothing</a>
+        <a href="#kitchen" onclick="w3_close()" class="w3-bar-item w3-button">Kitchen</a>
+    </nav>
+
+
+
+    <!-- NAVBAR -->
+
+
+
+    <nav class=" z-depth-0 grey lighten-4">
+
+        <a href="index.html" class="left logo">
+      BundleBid
+    </a>
+        <a href="#Clothing" class="black-text modal-trigger">Clothing .</a>
+        <a href="#Kitchen" class="black-text modal-trigger">Kitchen .</a>
+        <a href="#Footware" class="black-text modal-trigger" aria-posinset="left">Footware .</a>
+        <a href="#Cosmetics" class="black-text modal-trigger">Cosmetics </a>
+
+
+
+        <ul id="nav-mobile" class="right ">
+
+            <li>
+                <a href="#contact"></a>
+            </li>
+            <li class="logged-in" style="display: none;">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+            </li>
+            <li class="logged-in" style="display: none;">
+                <a href="#" class="grey-text" id="logout">Logout</a>
+            </li>
+            <li class="logged-out" style="display: block;">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+            </li>
+            <li class="logged-out" style="display: block;">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+            </li>
+            </span>
+        </ul>
+
+        <div class="right">
+
+        </div>
+        </div>
+    </nav>
+
+    <!--Page Content-->
+
+
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!--Carousel-->
+
+
+            <!-- The slideshow -->
+            <img src="img/bidding_paddles_2015.jpg" style="width:100%">
+
+            <!-- Left and right controls -->
+        </div>
+
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 " id="food">
+            <div class="w3-quarter">
+                <img src="img/beats.jpg" alt="Sandwich" style="width:100%">
+                <h3>Beats Headphones</h3>
+                <p>Decription : Original beats headphones in multiple colors</p>
+                <p>Quantity : 50 </p>
+                <p>Cueerent Bid : $ </p>
+                <button type="button" onclick="goto(product_page.html)">BID</button>
+            </div>
+            <div class="w3-quarter">
+                <img src="img/bulk-water-bottles.jpg" alt="Steak" style="width:100%">
+                <h3>Water Bottles</h3>
+                <p>Decription : Recycle Water bottles</p>
+                <p>Quantity : 500 </p>
+
+                <p>Cueerent Bid : $ </p><br>
+                <button type="button" onclick="alert('Successfully Bid!')">BID</button>
+            </div>
+            <div class="w3-quarter">
+                <img src="img/china small bread tea.jpg" alt="Cherries" style="width:100%">
+                <h3>China Tea Sets</h3>
+                <p>Decription : China small bread tea sets in different floral patterns</p>
+                <p>Quantity : 30</p>
+
+                <p>Cueerent Bid : $ </p>
+                <button type="button" onclick="alert('Successfully Bid!')">BID</button>
+            </div>
+            <div class="w3-quarter">
+                <img src="img/gloves.jpg" alt="Pasta and Wine" style="width:100%">
+                <h3>HUSKY Work Gloves</h3>
+                <p>Decription : Original Husky black polyester work gloves</p>
+                <p>Quantity : 25</p>
+
+                <p>Cueerent Bid : $ </p>
+                <button type="button" onclick="alert('Successfully Bid!')">BID</button>
+
+            </div>
+        </div>
+
+        <!-- Second Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 ">
+            <div class="w3-quarter">
+                <img src="img/mattress.jpg" alt="Popsicle" style="width:100%">
+                <h3>Purple Mattress</h3>
+                <p>Decription : Original Purple mattress 9"</p>
+                <p>Quantity : 70</p>
+
+                <p>Cueerent Bid : $ </p><br>
+                <button type="button" onclick="alert('Successfully Bid!')">BID</button>
+
+            </div>
+            <div class="w3-quarter">
+                <img src="img/shoes.jpg" alt="Salmon" style="width:100%">
+                <h3>Nike Shoes</h3>
+                <p>Decription : Nike shoes in different colors and sizes</p>
+                <p>Quantity : 29</p>
+
+                <p>Cueerent Bid : $ </p>
+                <button type="button" onclick="alert('Successfully Bid!')">BID</button>
+
+            </div>
+            <div class="w3-quarter">
+                <img src="img/tide.jpg" alt="Sandwich" style="width:100%">
+                <h3>Tide Detergent</h3>
+                <p>Decription : 254 onz tide detergent original</p>
+                <p>Quantity : 35</p>
+
+                <p>Cueerent Bid : $ </p>
+                <button type="button" onclick="alert('Successfully Bid!')">BID</button>
+
+            </div>
+            <div class="w3-quarter">
+                <img src="img/tupperware.jpg" alt="Croissant" style="width:100%">
+                <h3>Tupperware Containers </h3>
+                <p>Decription : Original Tupperware containers with 28p/set </p>
+                <p>Quantity : 50 </p>
+
+                <p>Cueerent Bid : $ </p>
+                <button type="button" onclick="alert('Successfully Bid!')">BID</button>
+
+            </div>
+        </div>
+
+
+        <!-- SIGN UP MODAL -->
+        <div id="modal-signup" class="modal fade">
+            <div class="modal-content">
+                <h4>Sign up</h4><br />
+                <form id="signup-form">
+                    <div class="input-field">
+                        <input type="email" id="signup-email" required autocomplete="off" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" class="validate" />
+                        <label for="signup-email">Email address</label>
+                        <span class="helper-text" data-error="Please enter a valid email address"></span>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" id="signup-password" required autocomplete="off" pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" class="validate" />
+                        <label for="signup-password">Password</label>
+                        <span class="helper-text" data-error="Password must contain at least one capital letter, one number, one special character and be between the length of 6 to 10 characters." data-success="Valid"></span>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="signup-name" required maxlength="50" class="validate" />
+                        <label for="signup-name">Your Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="date" id="signup-dob" required class="validate" />
+                        <label for="signup-dob">Date of Birth mm/dd/yyyy</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="signup-phone" required pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" class="validate" />
+                        <label for="signup-phone">Mobile Number (123-456-7890)</label>
+                        <span class="helper-text" data-error="You must enter a valid U.S. phone number in the format of 1234567890 or 123-456-7890"></span>
+                    </div>
+                    <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+                    <button class="modal-close btn lightgreen darken-2 z-depth-0">CANCEL</button>
+                    <p class="error pink-text center-align"></p>
+                </form>
+
+
+            </div>
+        </div>
+
+        <!-- LOGIN MODAL -->
+        <div id="modal-login" class="modal">
+            <div class="modal-content">
+                <h4>Login</h4><br />
+                <form id="login-form">
+                    <div class="input-field">
+                        <input type="email" id="login-email" required />
+                        <label for="login-email">Email address</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" id="login-password" required />
+                        <label for="login-password">Your password</label>
+                    </div>
+                    <button class="btn yellow darken-2 z-depth-0">Login</button>
+                    <button class="modal-close btn lightgreen darken-2 z-depth-0">CANCEL</button>
+                    <p class="error pink-text center-align"></p>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- ACCOUNT MODAL -->
+        <div id="modal-account" class="modal">
+            <div class="modal-content center-align">
+                <h4>Account details</h4><br />
+                <div class="account-details">
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Product LIST -->
+        <div class="container" style="margin-top: 40px;">
+            <ul class="collapsible z-depth-0 guides" style="border: none;">
+
+
+            </ul>
+        </div>
+
+
+
+
+
+
+        <!-- COPY THIS PART TO ACESS FIREBASE -->
+        <!-- Compiled and minified JavaScript -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyBg8xzMk36xi0rYJmP3pkoNu2DugRcIOe8",
+                authDomain: "bundlebid.firebaseapp.com",
+                databaseURL: "https://bundlebid.firebaseio.com",
+                projectId: "bundlebid",
+                storageBucket: "bundlebid.appspot.com",
+                messagingSenderId: "279594986812",
+                appId: "1:279594986812:web:a6f6631139c49574468239",
+                measurementId: "G-HKCCXNNLEH"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            //make auth and firestore references
+            const auth = firebase.auth();
+            const db = firebase.firestore();
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="scripts/auth.js"></script>
+        <script src="scripts/index.js"></script>
+
+        <!-- firebase Hosting file; 404 when run on local server 
+  <script src="/__/firebase/init.js"></script>-->
+        <!-- COPY THIS PART TO ACESS FIREBASE -->
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+some small coding with JS or JQuery. current I have the following need help with:
+1.	Currently the sign up error msg overlap texts in sign up modal
+2.	If you don’t have a product listed under your account, selling history should display something like: “You have not listed anything yet, list it <a href=”…”>now</a>
+3.	Sell a product == add timestamp when add to the DB
+4.	Add logic to add a product page where start bidding price must be smaller than buy it now price
+
+
+If you are very comfortable with coding, you can help me do the following:
+
+2.	when add new product, create category db that save all currently bidding products into that specific category
+3.	index.html display all added product
+4.	the rest of to do pages
+5.	in delete a product function, need to delete img from the storage too
+6.	remove all product in the index.html, set up <Div> structure for the area to display product by category
+7.	strip off bootstrip from the index.html page. we only use materilize for the project
+

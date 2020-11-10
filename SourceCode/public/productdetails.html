@@ -1,0 +1,155 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Link for icon image -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <title>BundleBid</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="grey lighten-3">
+
+    <!-- NAVBAR -->
+    <nav class=" z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+
+
+            <a href="index.html" class="left logo">
+                BundleBid
+            </a>
+
+
+            <ul id="nav-mobile" class="right ">
+                <li style="display: block;">
+                    <a href="index.html" class="grey-text" id="goback">Go Back</a>
+                </li>
+                </span>
+            </ul>
+
+            <div class="right">
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Information -->
+    <div class="container" style="margin-top: 40px;" id="containerDIV">
+        <div class="collapsible z-depth-0 account-info" style="border: none;">
+
+            <div style="display:flex; align-items: left;" id="new-product-img-display">
+
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6 l7">
+                    <img src="img/missingpicture350x350.png" alt="Product Picture" id="product-Img" Style="width:100%; padding: 7%;" ;>
+                </div>
+
+                <div class="col s12 m6 l5" style="padding-left: 2%;">
+                    <h3 id="product-name">product name</h3>
+                    <a class="btn-floating pink btn-small pulse"><i class="tiny material-icons">whatshot</i></a>
+                    <a class="btn-floating pink btn-small pulse"><i class="tiny material-icons">whatshot</i></a>
+                    <a class="btn-floating pink btn-small pulse"><i class="tiny material-icons">whatshot</i></a>
+                    <a class="btn-floating pink btn-small pulse"><i class="tiny material-icons">whatshot</i></a>
+                    <a class="btn-floating pink btn-small pulse"><i class="tiny material-icons">whatshot</i></a>
+
+                    <p id="product-description" style="margin-top: 12px; margin-bottom: 18px;"> </p>
+
+                    <div class="divider"></div>
+                    <div class="section">
+                        <p><i class="small material-icons">border_color</i>&nbsp; Quantity:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <label id="product-quantity" style="color:black; font-size: 15px;">time</label>
+                        </p>
+                        <br>
+                        <p><i class="small material-icons">timelapse</i>&nbsp; Time Left:&nbsp; &nbsp; &nbsp; &nbsp;
+                            <label id="auction-time-left" style="color:black; font-size: 15px;">2d 04h 36m |
+                                Thursday</label>
+                        </p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="section">
+                        <p><i class="small material-icons">attach_money</i>&nbsp; Current Price:&nbsp;
+                            <label id="current_price" style="color:black; font-size: 15px;">current_price</label>
+                        </p>
+                        <br>
+                        <p><i class="small material-icons">arrow_forward</i>&nbsp; Buy it Now:&nbsp; &nbsp; &nbsp;<b id="product-buy-now-price">300</b>&nbsp;&nbsp;&nbsp;
+                            <a class="small btn-floating red pulse" onclick="buyItNow()"><i class="material-icons">credit_card</i></a>
+                        </p>
+
+
+
+                    </div>
+
+                    <div class="divider"></div>
+                    <div class="section">
+                        <b style="margin-top: 3px;">Make a Bid!</b>
+                        <form id="submit-bid-form">
+                            <div class="input-field">
+                                <input type="text" id="make-a-bid" required autocomplete="off" class="validate" pattern="^(\d+(\.\d{0,2})?|\.?\d{1,2})$" placeholder="1.00">
+                                <span class="helper-text" data-error="Please enter a valid bidding price."></span>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBg8xzMk36xi0rYJmP3pkoNu2DugRcIOe8",
+            authDomain: "bundlebid.firebaseapp.com",
+            databaseURL: "https://bundlebid.firebaseio.com",
+            projectId: "bundlebid",
+            storageBucket: "bundlebid.appspot.com",
+            messagingSenderId: "279594986812",
+            appId: "1:279594986812:web:a6f6631139c49574468239",
+            measurementId: "G-HKCCXNNLEH"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        //make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/productDetails.js"></script>
+    <!-- <script src="scripts/index.js"></script> -->
+
+    <!-- firebase Hosting file; 404 when run on local server 
+  <script src="/__/firebase/init.js"></script>-->
+
+</body>
+
+</html>

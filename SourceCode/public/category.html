@@ -1,0 +1,202 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <title>BundleBid</title>
+</head>
+
+<body class="grey lighten-3">
+
+    <!-- NAVBAR -->
+    <nav class=" z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+
+
+            <a href="index.html" class="left logo">
+                BundleBid
+            </a>
+
+
+
+
+            <ul id="nav-mobile" class="right ">
+
+                <li>
+                    <a href="#contact"></a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text" id="logout">Logout</a>
+                </li>
+                <li class="logged-out" style="display: block;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                </li>
+                <li class="logged-out" style="display: block;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                </li>
+                </span>
+            </ul>
+
+
+            <div class="right">
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- <form>
+        <div style="align-content: center; margin-left: 35%; display: inline-block;padding-top: 10px;">
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="float: right;">
+                    <i class="material-icons">search</i>
+            </button>
+            <input id="inline" type="text" class="validate" style="float:right; margin-left: auto;">
+
+        </div>
+    </form> -->
+
+    <div class="row">
+        <form id="search">
+            <div class="col s3 offset-s1">
+                <!-- <input type="submit"> -->
+                <button class="btn-small waves-effect waves-light" type="submit" name="action" style="float: right; margin-top: 3%;">
+                    <i class="material-icons">search</i>
+                </button>
+            </div>
+            <div class="col s4">
+                <input id="inline" type="text" class="validate" style="float:right; margin-left: auto;">
+            </div>
+        </form>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="container" id="product-list">
+    </div>
+
+
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal fade">
+        <div class="modal-content">
+            <h4>Sign up</h4><br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required autocomplete="off" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" class="validate" />
+                    <label for="signup-email">Email address</label>
+                    <span class="helper-text" data-error="Please enter a valid email address"></span>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required autocomplete="off" pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" class="validate" />
+                    <label for="signup-password">Password</label>
+                    <span class="helper-text" data-error="Password must contain at least one capital letter, one number, one special character and be between the length of 6 to 10 characters." data-success="Valid"></span>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="signup-name" required maxlength="50" class="validate" />
+                    <label for="signup-name">Your Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="date" id="signup-dob" required class="validate" />
+                    <label for="signup-dob">Date of Birth mm/dd/yyyy</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="signup-phone" required pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" class="validate" />
+                    <label for="signup-phone">Mobile Number (123-456-7890)</label>
+                    <span class="helper-text" data-error="You must enter a valid U.S. phone number in the format of 1234567890 or 123-456-7890"></span>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+                <button class="modal-close btn lightgreen darken-2 z-depth-0">CANCEL</button>
+                <p class="error pink-text center-align"></p>
+            </form>
+
+
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4><br />
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Login</button>
+                <button class="modal-close btn lightgreen darken-2 z-depth-0">CANCEL</button>
+                <p class="error pink-text center-align"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal" style="max-width: 100%; max-height: 100%;">
+        <div class="modal-content center-align">
+            <h4>Account details</h4><br />
+            <div class="account-details">
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBg8xzMk36xi0rYJmP3pkoNu2DugRcIOe8",
+            authDomain: "bundlebid.firebaseapp.com",
+            databaseURL: "https://bundlebid.firebaseio.com",
+            projectId: "bundlebid",
+            storageBucket: "bundlebid.appspot.com",
+            messagingSenderId: "279594986812",
+            appId: "1:279594986812:web:a6f6631139c49574468239",
+            measurementId: "G-HKCCXNNLEH"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        //make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/category.js"></script>
+
+    <!-- firebase Hosting file; 404 when run on local server 
+  <script src="/__/firebase/init.js"></script>-->
+
+</body>
+
+</html>

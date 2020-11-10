@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>BundleBid</title>
+    
+    <!--Page-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body class="grey lighten-3">
+
+    <!-- NAVBAR -->
+    <nav class=" z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+
+            <a href="index.html" class="left logo">
+                BundleBid
+            </a>
+
+            <ul id="nav-mobile" class="right ">
+                <li style="display: block;">
+                    <a href="index.html" class="grey-text" id="goback">Go Back</a>
+                </li>
+                </span>
+            </ul>
+
+            <div class="right">
+
+            </div>
+        </div>
+    </nav>
+
+  <!-- Enter Product Information here -->
+  
+  <div class="container" style="margin-top: 20px;">
+    
+    <div class="collapsible z-depth-0 account-info" style="border: none;" id="content-area">
+      <div style="display:flex; align-items: left;" id="new-product-img-display">
+        <img src="img/missingpicture350x350.png" alt="Product Picture" id="myimg" Style="width:350px; height:350px; margin-bottom: 15px";>
+      </div>
+      <div style="display:flex; align-items: left; margin-bottom: 15px;">
+        <progress value="0" max="100" id="uploader" style="width:350px;">0%</progress>
+      </div>
+      <div style="display:flex; align-items: left; margin-bottom: 15px;">
+        <input type="file" id="product-img-file" required maxlength="50" />
+      </div>
+      <br />
+
+
+      <form id="add-product-form">
+
+        <div class="input-field">
+          <label for="product-name" style="width:150px; color:black;">Product Name:</label>
+          <input type="text" id="product-name" required maxlength="200" class="validate" placeholder="Product Name"/>
+        </div>
+
+        <!-- This will store the product picture link to the db for later look up -->
+        <div class="input-field" style="display: none;">
+          <label for="picture-link" style="width:150px; color:black;">Picture Link:</label>
+          <input type="text" id="picture-link" required maxlength="50" class="validate" />
+        </div>
+
+        <div class="input-field">
+          <label for="product-description" style="width:150px; color:black;">Product Description:</label>
+          <input type="text" id="product-description" required maxlength="400" class="validate" placeholder="Product Description" />
+        </div>
+
+        <div style="display:flex; flex-direction: row; justify-content: left; align-items: center; margin-bottom: 15px;">
+          <label for="product-category" style="width:150px; color:black;">Product Category:</label>
+          <select id="product-category">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="appeal">Appeal</option>
+            <option value="cosmetic">Cosmetic</option>
+            <option value="kitchen">Kitchen</option>
+            <option value="furniture">Furniture</option>
+          </select>
+        </div>
+        
+        <div class="input-field">
+          <label for="product-quantity" style="width:150px; color:black;">Bundle Quantity:</label>
+          <input type="text" id="product-quantity" min="1" max="100000" required maxlength="6" class="validate" placeholder="1" pattern="^[1-9]\d*$" />
+          <span class="helper-text"
+            data-error="Please enter a valid product quantity. It must be a positive integer. Decimal will not be allowed"></span>
+        </div>
+
+        <div class="input-field">
+          <label for="product-start-price" style="width:150px; color:black;" >Start Price:</label>
+          <input type="text" id="product-start-price" step="any" required maxlength="9" class="validate" autocomplete="off" pattern="^(\d+(\.\d{0,2})?|\.?\d{1,2})$" placeholder="1.99"/>
+          <span class="helper-text" data-error="Please enter a valid product price."></span>
+        </div>
+
+        <div class="input-field">
+          <label for="product-buy-now-price" style="width:150px; color:black;">Buy Now Price:</label>
+          <input type="text" id="product-buy-now-price" step="any" required maxlength="9" class="validate" autocomplete="off" class="validate" pattern="^(\d+(\.\d{0,2})?|\.?\d{1,2})$" placeholder="99.99"/>
+          <span class="helper-text" data-error="Please enter a valid buy it now product price."></span>
+        </div>
+
+
+        <button class="btn yellow darken-2 z-depth-0 update-account-info">Submit</button>
+      </form>
+
+    </div>
+  </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        
+        var firebaseConfig = {
+            apiKey: "AIzaSyBg8xzMk36xi0rYJmP3pkoNu2DugRcIOe8",
+            authDomain: "bundlebid.firebaseapp.com",
+            databaseURL: "https://bundlebid.firebaseio.com",
+            projectId: "bundlebid",
+            storageBucket: "bundlebid.appspot.com",
+            messagingSenderId: "279594986812",
+            appId: "1:279594986812:web:a6f6631139c49574468239",
+            measurementId: "G-HKCCXNNLEH"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        
+        //make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/product.js"></script>
+    <!-- <script src="scripts/index.js"></script> -->
+
+    <!-- firebase Hosting file; 404 when run on local server 
+  <script src="/__/firebase/init.js"></script>-->
+
+</body>
+
+</html>

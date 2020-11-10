@@ -1,0 +1,133 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <title>BundleBid</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="grey lighten-3">
+
+  <!-- NAVBAR -->
+  <nav class=" z-depth-0 grey lighten-4">
+    <div class="nav-wrapper container">
+
+
+      <a href="index.html" class="left logo">
+        BundleBid
+      </a>
+
+
+      <ul id="nav-mobile" class="right ">
+        <li style="display: block;">
+          <a href="index.html" class="grey-text" id="goback">Go Back</a>
+        </li>
+        </span>
+      </ul>
+
+      <div class="right">
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Information -->
+  <div class="container" style="margin-top: 40px;">
+    <div class="collapsible z-depth-0 account-info" style="border: none;">
+      <div style="display:flex; align-items: left;" id="new-product-img-display">
+        <img src="img/missingpicture350x350.png" alt="Product Picture" id="product-Img"
+          Style="width:350px; height:350px; margin-bottom: 15px" ;>
+      </div>
+
+      <form id="product-update-form">
+        <div class="input-field">
+          <input type="text" id="product-name" required autocomplete="off" placeholder="Product Name" class="validate" maxlength="200" />
+          <label for="product-name">Product Name:</label>
+          <span class="helper-text" data-error="Please input a valid product name. Length limit to 200 characters." data-success="right"></span>
+        </div>
+
+
+        <div class="input-field">
+          <input type="text" id="product-description" required placeholder="Product Description" autocomplete="off" class="validate" maxlength="400" />
+          <label for="product-description">Description:</label>
+          <span class="helper-text" data-error="Please input a valid product description. Length limit to 400 characters."></span>
+        </div>
+
+        <div class="input-field">
+          <label for="product-quantity" style="width:20%">Quantity:</label>
+          <input type="text" id="product-quantity" required placeholder="1" autocomplete="off" class="validate" pattern="^[1-9]\d*$" />
+          <span class="helper-text"
+            data-error="Please enter a valid product quantity. It must be a positive integer. Decimal will not be allowed"></span>
+        </div>
+
+        <div class="input-field">
+          <label for="product-start-price" style="width:20%">Start Price:</label>
+          <input type="text" id="product-start-price" required autocomplete="off" pattern="^(\d+(\.\d{0,2})?|\.?\d{1,2})$" placeholder="1.00" class="validate" />
+          <span class="helper-text" data-error="Please enter a valid product price."></span>
+        </div>
+
+
+        <div class="input-field">
+          <label for="product-buy-now-price" style="width:20%">Buy It Now Price:</label>
+          <input type="text" id="product-buy-now-price" required autocomplete="off" class="validate" pattern="^(\d+(\.\d{0,2})?|\.?\d{1,2})$" placeholder="1.00" />
+          <span class="helper-text" data-error="Please enter a valid buy it now product price."></span>
+        </div>
+
+        <button class="btn yellow darken-2 z-depth-0 update-account-info">Update</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBg8xzMk36xi0rYJmP3pkoNu2DugRcIOe8",
+      authDomain: "bundlebid.firebaseapp.com",
+      databaseURL: "https://bundlebid.firebaseio.com",
+      projectId: "bundlebid",
+      storageBucket: "bundlebid.appspot.com",
+      messagingSenderId: "279594986812",
+      appId: "1:279594986812:web:a6f6631139c49574468239",
+      measurementId: "G-HKCCXNNLEH"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    //make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/modifyProduct.js"></script>
+  <!-- <script src="scripts/index.js"></script> -->
+
+  <!-- firebase Hosting file; 404 when run on local server 
+  <script src="/__/firebase/init.js"></script>-->
+
+</body>
+
+</html>
