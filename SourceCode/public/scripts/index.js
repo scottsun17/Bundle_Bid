@@ -59,7 +59,7 @@ searchProduct.addEventListener('submit', (e) => {
 
             //product image
             let productImg = document.createElement('img');
-            productImg.setAttribute('style', "width: 100%; max-wdith:300px;");
+            productImg.setAttribute('style', "width: 100%; max-width:300px;");
             productImg.textContent = doc.data().pruduct_picture_link;
             productImg.setAttribute('src', productImg.textContent)
 

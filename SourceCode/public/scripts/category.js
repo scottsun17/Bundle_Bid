@@ -60,7 +60,7 @@ searchProduct.addEventListener('submit', (e) => {
 
             //product image
             let productImg = document.createElement('img');
-            productImg.setAttribute('style', "width: 100%; max-wdith:300px;");
+            productImg.setAttribute('style', "width: 100%; max-width:300px;");
             productImg.textContent = doc.data().pruduct_picture_link;
             productImg.setAttribute('src', productImg.textContent)
 
@@ -146,11 +146,13 @@ window.onload = (event) => {
     db.collection('product').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
 
-            const productList = document.querySelector('#product-list');
+            const prodList = document.querySelector('#main-page-container');
             let category = doc.data().product_category;
 
             let currentPrice = doc.data().current_price;
             let buyNowPrice = doc.data().product_buy_now_price;
+
+            let bidEnd = document.createElement('p');
 
             let startTime = new Date();
             let endtime = new Date(doc.data() && doc.data().bid_end_time && doc.data().bid_end_time.toDate());
@@ -159,25 +161,49 @@ window.onload = (event) => {
             let dayleft = calculateDaysLeft(diff);
             let hourleft = calculateHoursLeft(diff - dayleft);
 
-            gridItemNo = 1;
             if (category == productCategory && (currentPrice != buyNowPrice) && (dayleft > 0 || hourleft > 0)) {
+
                 let list = document.createElement('div');
-                list.classList.add("item" + gridItemNo);
-                gridItemNo =+ 1;
+                list.classList.add('row');
+
+                let productName = document.createElement('h4');
+                let description = document.createElement('p');
+                let quantity = document.createElement('p');
+                let currentPrice = document.createElement('p');
+                let buyNowPrice = document.createElement('p');
+
+                productName.textContent = doc.data().product_name;
+                description.textContent = "Description: " + doc.data().product_description;
+                quantity.textContent = "Quantity: " + doc.data().product_quantity;
+                currentPrice.textContent = "Current Bid: $" + doc.data().current_price;
+                buyNowPrice.textContent = "Buy It Now Price: $" + doc.data().product_buy_now_price;
+                link = "productdetails.html#" + doc.id;
 
                 let productImg = document.createElement('img');
-                productImg.setAttribute('style', "width:300px; height:300px");
-
-                let productName = document.createElement('b');
-                productName.textContent = doc.data().product_name;
-
+                productImg.setAttribute('style', "width: 100%; max-width:300px;");
                 productImg.textContent = doc.data().pruduct_picture_link;
                 productImg.setAttribute('src', productImg.textContent)
 
-                list.appendChild(productImg);
-                list.appendChild(productName)
+                let row = document.createElement('div');
+                row.setAttribute('class', 'row');
+                let imageList = document.createElement('div');
+                imageList.setAttribute('class', "col s3 m3");
 
-                productList.appendChild(list);
+                let detailList = document.createElement('div');
+                detailList.setAttribute('class', "col s7 m6");
+
+                imageList.setAttribute('onclick', "location.href ='" + link + "'");
+                imageList.appendChild(productImg);
+                detailList.appendChild(productName);
+                detailList.appendChild(description);
+                detailList.appendChild(quantity);
+                detailList.appendChild(currentPrice);
+                detailList.appendChild(buyNowPrice);
+                detailList.appendChild(bidEnd);
+                row.appendChild(imageList);
+                row.appendChild(detailList);
+
+                prodList.appendChild(row);
             }
             
         })
