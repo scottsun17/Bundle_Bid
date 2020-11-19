@@ -19,11 +19,9 @@
     <nav class=" z-depth-0 grey lighten-4">
         <div class="nav-wrapper container">
 
-
             <a href="index.html" class="left logo">
                 BundleBid
             </a>
-
 
             <ul id="nav-mobile" class="right ">
                 <li style="display: block;">
@@ -41,8 +39,67 @@
 
     <!-- Product LIST -->
     <div class="container" style="margin-top: 40px;">
+        <form id="payment-form">
+            <h4>Shipping Address:</h4>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label for="buyer-name" style="width:20%">Name:</label>
+                <input type="text" id="buyer-name" required autocomplete="off" class="validate" />
+                <span class="helper-text" data-error="Please enter a valid email address"></span>
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label for="update-name" style="width:20%">Address 1</label>
+                <input type="text" id="update-name" required maxlength="50" class="validate" />
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label for="update-name" style="width:20%">Address 2</label>
+                <input type="text" id="update-name" maxlength="50" class="validate" />
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label for="update-name" style="width:20%">City</label>
+                <input type="text" id="update-name" required maxlength="50" class="validate" />
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label for="update-name" style="width:20%">State</label>
+                <input type="text" id="update-name" required maxlength="2" class="validate" pattern="^((A[LKSZR])|(C[AOT])|(D[EC])|(F[ML])|(G[AU])|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EHDAINSOT])|(N[EVHJMYCD])|(MP)|(O[HKR])|(P[WAR])|(RI)|(S[CD])|(T[NX])|(UT)|(V[TIA])|(W[AVIY]))$"
+                />
+                <span class="helper-text" data-error="Please enter a valid US State"></span>
+            </div>
+            <br>
+            <h4>Credit Card/Debt Card:</h4>
+            <br>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label for="update-phone" style="width:20%">Name on the Card</label>
+                <input type="text" id="card-name" required class="validate" maxlength="250" />
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label for="update-dob" style="width:20%">Card Number</label>
+                <input type="text" id="card-number" required class="validate" maxlength="16" pattern="^(\d{4}-){3}\d{4}$|^(\d{4} ){3}\d{4}$|^\d{16}$" />
+                <span class="helper-text" data-error="Please enter a valid card number"></span>
+            </div>
 
-        <div class="collapsible z-depth-0 " style="border: none;">
+
+            <div style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                <label for="expiration-date" style="width:16.7%; ">CVV</label>
+                <input type="text" id="expiration-date" required class="validate" style="width:55px;" />
+                <span class="helper-text" data-error="Please enter a valid CVV"></span>
+            </div>
+
+            <div style="display:flex; flex-direction: row; justify-content: left; align-items: center">
+                <label for="CVV" style="width:16.7%">Expiration Date</label>
+
+                <input type="text" id="cvv-month" required class="validate" pattern="^(0?[1-9]|1[012])$" maxlength="2" style="width:35px;" value=" mm" />
+                <span>/</span>
+                <input type="text" id="cvv-year" required class="validate" pattern="^[0-9]{2}$" maxlength="2" style="width:35px;" value=" yy" />
+
+            </div>
+            <br />
+
+            <button class="btn blue darken-2 z-depth-0 payment-info">Submit</button>
+        </form>
+        <br />
+
+        <div class="collapsible z-depth-0 " style="border: none; margin-bottom: 100px;">
+            Or you can pay with paypal here!<br /> <br />
             <div id="paypal-button"></div>
         </div>
     </div>
