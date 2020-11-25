@@ -125,23 +125,33 @@ function buyItNow() {
 
     if (productId) {
         let maxPrice = 0;
-        db.collection('product').doc(productId).get().then(doc => {
-            maxPrice = doc.data().product_buy_now_price;
-        }).then(() => {
-            db.collection('product').doc(productId).update({
-                current_price: maxPrice,
-                last_bidder: currentUser.uid
-            }).then(() => {
-                db.collection('users').doc(currentUser.uid).collection('PurchaseHistory').doc(productId).set({
-                    current_price: maxPrice,
-                    ending_bid_time: endBiddingTime
+        auth.onAuthStateChanged(user => {
+            if (user) {
 
+                db.collection('product').doc(productId).get().then(doc => {
+                    maxPrice = doc.data().product_buy_now_price;
                 }).then(() => {
-                    window.alert("You have placed max Bid on this product! It is yours now!");
-                    window.location.href = "biddinghistory.html";
-                });
-            })
-        })
+                    db.collection('product').doc(productId).update({
+                        current_price: maxPrice,
+                        last_bidder: user.uid
+
+                    }).then(() => {
+                        db.collection('users').doc(user.uid).collection('PurchaseHistory').doc(productId).set({
+                            current_price: maxPrice,
+                            ending_bid_time: endBiddingTime
+
+                        }).then(() => {
+                            window.alert("You have placed max Bid on this product! It is yours now!");
+                            window.location.href = "checkout.html";
+                        });
+                    })
+                })
+
+            } else {
+                window.alert("Please log in first");
+            }
+        });
+
 
 
 
